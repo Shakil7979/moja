@@ -28,6 +28,8 @@ $(document).ready(function(){
     $('.third_model').hide();
     $('.second_model').hide();
     $('.first_modal').show();
+
+    return false;
   });
 
   // click second modal  
@@ -35,6 +37,7 @@ $(document).ready(function(){
     $('.second_model').show();
     $('.third_model').hide();
     $('.first_modal').hide();
+    return false;
   });
 
   // click third modal  
@@ -42,6 +45,7 @@ $(document).ready(function(){
     $('.third_model').show();
     $('.second_model').hide();
     $('.first_modal').hide();
+    return false;
   });
 
   // All modal Close 
@@ -49,12 +53,14 @@ $(document).ready(function(){
     $('.third_model').hide();
     $('.second_model').hide();
     $('.first_modal').hide();
+    return false;
   });
 
   // Bars btn 
   $(document).on('click','.bars_btn', function(){
     $('.menus_list').slideToggle(); 
     $(this).toggleClass('bars_btn_add');  
+    return false;
   });
  
 });
