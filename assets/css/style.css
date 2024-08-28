@@ -61,7 +61,7 @@ ul li a,a{
 	font-weight: 600;
 	line-height: 20px;
 	text-align: left;
-	color: #fff;
+	color: #F4F1EA;
 	margin-bottom: 35px;
 	position: relative;
 }
@@ -71,7 +71,7 @@ ul li a,a{
 	position: absolute;
 	width: 50px;
 	height: 2px;
-	background: #fff;
+	background: #F4F1EA;
 	left: 0;
 	bottom: -10px;
 }
@@ -461,7 +461,7 @@ ul li a,a{
 	padding: 14px 30px;
 	position: relative;
 	width: 100%;
-	margin-top: -200px;
+	margin-top: -213px;
 }
   
 .third_nahravka {
@@ -471,12 +471,13 @@ ul li a,a{
 	border-radius: 25px 25px 0 0;
 	padding: 30px;
 	position: relative; 
-	margin-top: -15px;
+	margin-top: -14px;
 	z-index: 99;
 }
 
 .video_nahrav iframe {
-	width: 100%; 
+	width: 100%;
+	height: 174px;
 }
 
 .video_nahrav {
@@ -488,6 +489,14 @@ ul li a,a{
 	align-items: inherit;
 	margin-top: 80px;
 }
+  
+.owl-carousel .owl-item {
+	z-index: 1; /* Default z-index for all items */
+  }
+  
+  .owl-carousel .owl-item.center {
+	z-index: 2; /* Higher z-index for the center item */
+  }
   
 
 .nahravka_title h3 {
@@ -551,7 +560,26 @@ ul li a,a{
 	transform: scale(0.8); /* Scale down the side items */
 	opacity: 0.7; /* Optional: make the side items slightly transparent */
   }
+
+  .audio_player_progress {
+	position: relative;
+}
   
+.audio_start_time {
+	position: absolute;
+	bottom: -20px;
+	color: #fff;
+	left: 0;
+	font-size: 14px;
+}
+
+.audio_full_time {
+	position: absolute;
+	bottom: -20px;
+	color: #fff;
+	right: 0;
+	font-size: 14px;
+}
   
 
 /*======================  End Page  ======================*/

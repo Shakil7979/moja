@@ -79,11 +79,24 @@ document.addEventListener('DOMContentLoaded', function () {
   const btnNext = document.querySelector('.btn-next');
   const btnPrev = document.querySelector('.btn-prev');
   const progress = document.querySelector('.progress');
+  const startTimeDisplay = document.querySelector('.audio_start_time');
+  const fullTimeDisplay = document.querySelector('.audio_full_time');
   const iconPlayPause = btnPlayPause.querySelector('i');
+
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  }
 
   function loadSong(index) {
     audio.src = songs[index].src;
     audio.load();
+
+    // Once the song metadata is loaded, display the full duration
+    audio.addEventListener('loadedmetadata', function () {
+      fullTimeDisplay.textContent = formatTime(audio.duration);
+    });
   }
 
   function playSong() {
@@ -116,6 +129,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const percentage = (audio.currentTime / audio.duration) * 100;
     progress.value = percentage;
 
+    // Update the start time display
+    startTimeDisplay.textContent = formatTime(audio.currentTime);
+
     // Dynamically update the background color of the progress bar
     progress.style.background = `linear-gradient(to right, white ${percentage}%, #d3d3d3 ${percentage}%)`;
   }
@@ -138,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateProgressBar();
   });
 
+  // Load the first song on page load
   loadSong(currentIndex);
 });
 
